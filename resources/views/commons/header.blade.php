@@ -8,7 +8,7 @@
             <div class="container navbar-container" id="nav-bar" >
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="" class="nav-link">ログイン</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">新規登録</a></li>
+                    <li class="nav-item"><a href="{{ route('signup') }}" class="nav-link">新規登録</a></li>
                 </ul>
             </div>
         </nav>
