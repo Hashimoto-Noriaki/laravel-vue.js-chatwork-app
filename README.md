@@ -21,6 +21,7 @@ docker compose up -d
  ```
  http://localhost:8080/
  ```
+### php adminer
 
  ### コンテナ起動
  ```
