@@ -7,8 +7,14 @@
             </button>
             <div class="container navbar-container" id="nav-bar" >
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="" class="nav-link">ログイン</a></li>
-                    <li class="nav-item"><a href="{{ route('signup') }}" class="nav-link">新規登録</a></li>
+                <ul class="navbar-nav">
+                    @if (Auth::check())
+                        <li class="nav-item"><a href="{{ route('logout') }}" class="nav-link">ログアウト</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">マイページ</a></li>
+                    @else
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">ログイン</a></li>
+                        <li class="nav-item"><a href="{{ route('signup') }}" class="nav-link">新規登録</a></li>
+                    @endif
                 </ul>
             </div>
         </nav>
