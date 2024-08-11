@@ -29,6 +29,12 @@
                     </div>
                     <button type="submit" class="btn btn-block btn-primary mt-3">新規登録</button>
                 </form>
+
+                <div class = "text-center mt-3">
+                    <p><a href = "{{ route('login') }}">すでに登録されている方はこちら</a></p>
+
+                    </p>
+                <div>
             </div>
         </div>
     </div>
