@@ -7,8 +7,8 @@
             </button>
             <div class="container navbar-container" id="nav-bar" >
                 <ul class="navbar-nav ml-auto">
-                <ul class="navbar-nav">
                     @if (Auth::check())
+                        <li class="nav-item"><a href="{{ route('users.show', Auth::id()) }}" class="nav-link">{{ Auth::user()->name }}</a></li>
                         <li class="nav-item"><a href="{{ route('logout') }}" class="nav-link">ログアウト</a></li>
                         <li class="nav-item"><a href="" class="nav-link">マイページ</a></li>
                     @else
