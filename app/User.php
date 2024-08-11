@@ -39,8 +39,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // protected $dates = [
+    //     'deleted_at'
+    // ];
+
     public function posts()
     {
         return $this->hasMany(Posts::class);
     }
+
+    // public static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::deleting(function ($user) {
+    //         $user->posts()->delete();
+    //     });
+    // }
 }
