@@ -51,3 +51,7 @@ Dockerのコンテナイメージの保管先 (このイメージを元にCloudR
 
 ### CloudBuild
 自動デプロイ (Githubのmainにマージしたら自動でイメージを作ってArtifactRegistryに保管してくれて、その後CloudRunやCloudRunJobsに自動でデプロイしてくれる)
+
+### ダミーで作ったあリポジトリ
+
+https://github.com/Hashimoto-Noriaki/laravel-vue.js-chatwork-mock
