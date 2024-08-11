@@ -13,15 +13,15 @@
                     @csrf
                     <div class="form-group">
                         <label for="email">メールアドレス</label>
-                        <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}">
+                        <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" placeholder="メールアドレス*">
                     </div>
                     <div class="form-group">
                         <label for="password">パスワード</label>
-                        <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}">
+                        <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="パスワード*">
                     </div>
                     <div class="form-group">
                         <label for="password_confirmation">パスワード確認</label>
-                        <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" value="{{ old('password_confirmation') }}">
+                        <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="もう一度入力してください">
                     </div>
                     <button type="submit" class="btn btn-block btn-primary mt-3">ログイン</button>
                 </form>
