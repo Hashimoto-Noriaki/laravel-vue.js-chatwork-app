@@ -31,3 +31,11 @@ Route::prefix('users')->group(function() {
     Route::put('{id}','UsersController@update')->name('users.update');
     Route::delete('{id}','UsersController@destroy')->name('users.delete');
 });
+
+// ログイン後
+Route::group(['middleware' => 'auth'], function () {
+    // 動画
+    Route::prefix('posts')->group(function () {
+        Route::post('', 'PostsController@store')->name('posts.store');
+    });
+});
