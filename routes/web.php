@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//トップページの表示
+Route::get('/', 'PostsController@index');
+
 //新規登録
 Route::get('signup','Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup','Auth\RegisterController@register')->name('signup.post');
