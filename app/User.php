@@ -39,9 +39,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // protected $dates = [
-    //     'deleted_at'
-    // ];
+    protected $dates = [
+        'deleted_at'
+    ];
 
     public function posts()
     {
