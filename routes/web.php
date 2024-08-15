@@ -44,4 +44,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('{id}','PostsController@update')->name('posts.update');
         Route::delete('{id}', 'PostsController@destroy')->name('posts.delete');
     });
+     // いいね
+    Route::group(['prefix' => 'users/{id}'],function(){
+        Route::post('follow','FollowController@store')->name('follow');
+        Route::delete('unFollow','FollowController@destroy')->name('unFollow');
+    });
 });
