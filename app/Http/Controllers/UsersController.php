@@ -39,7 +39,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
-        return redirect()->route('users.show',$user->id);
+        return redirect()->route('users.show',$user->id)->with('successMessage','ユーザー情報を更新しました。');
     }
 
     function destroy($id)
@@ -48,6 +48,6 @@ class UsersController extends Controller
         if (\Auth::id() === $user->id) {
             $user->delete();
         }
-        return redirect('/');
+        return redirect('/')->with('alertMessage', '退会が完了しました');
     }
 }

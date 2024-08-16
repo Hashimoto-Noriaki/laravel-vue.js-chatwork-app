@@ -6,6 +6,15 @@
         <h1><i class="fas fa-comment-dots pr-3 d-inline"></i>ChatApp</h1>
     </div>
 </div>
+@if (session('alertMessage'))
+  <div class="alert alert-danger text-center w-100 mx-auto">
+    {{ session('alertMessage') }}
+  </div>
+@elseif (session('successMessage'))
+<div class="alert alert-success text-center w-100 mx-auto">
+  {{ session('successMessage') }}
+</div>
+@endif
 <h5 class="description text-center">チャットで会話をしましょう</h5>
 @if (Auth::check())
     <div class="w-75 m-auto">@include('commons.error_messages')</div>
