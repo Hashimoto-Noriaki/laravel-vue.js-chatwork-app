@@ -27,6 +27,12 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
+//フォロー・フォロワー関連
+Route::group(['prefix' => 'users/{id}'],function(){
+    Route::get('followings','FollowController@followingsShow')->name('followings');
+    Route::get('followers','FollowController@followersShow')->name('followers');
+});
+
 //ユーザー詳細、編集、更新、削除
 Route::prefix('users')->group(function() {
     Route::get('{id}','UsersController@show')->name('users.show');
@@ -44,7 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('{id}','PostsController@update')->name('posts.update');
         Route::delete('{id}', 'PostsController@destroy')->name('posts.delete');
     });
-     // いいね
+     // ログイン後フォロー機能
     Route::group(['prefix' => 'users/{id}'],function(){
         Route::post('follow','FollowController@store')->name('follow');
         Route::delete('unFollow','FollowController@destroy')->name('unFollow');
