@@ -2,17 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Post;
 
 class PostsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::orderBy('id','desc')->paginate(9);
-        return view('welcome',[
-            'posts' => $posts,
-        ]);
+        $search = $request->input('keyword');
+        $query = Post::query();
+
+        if (!empty($search)) {
+            $query->where('text', 'LIKE', "%{$search}%");
+        }
+
+        $posts = $query->orderBy('id', 'desc')->paginate(10);
+
+        // 検索結果が空の場合にフラッシュメッセージを設定
+        if ($posts->isEmpty() && !empty($search)) {
+            session()->flash('alertMessage', '検索が見つかりません。');
+        }
+
+        return view('welcome', ['posts' => $posts, 'search' => $search]);
     }
 
     public function store(PostRequest $request){
