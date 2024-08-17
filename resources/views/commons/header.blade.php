@@ -5,7 +5,17 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="container navbar-container" id="nav-bar" >
+            <div class="container navbar-container collapse navbar-collapse" id="nav-bar">
+                @if (Auth::check())
+                    <form method="get" action="{{ route('posts.index') }}" class="form-inline my-2 my-lg-0 mr-auto　w-50">
+                        <div class="input-group w-100">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input type="text" name="keyword" class="form-control" placeholder="メッセージ内容を検索" value="{{ request()->input('keyword') }}" autocomplete="on" w-100　>
+                        </div>
+                    </form>
+                @endif
                 <ul class="navbar-nav ml-auto">
                     @if (Auth::check())
                         <li class="nav-item"><a href="{{ route('users.show', Auth::id()) }}" class="nav-link">{{ Auth::user()->name }}</a></li>
