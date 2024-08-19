@@ -11,6 +11,3 @@
         @endif
     </div>
 </div><br>
-<div class = "text-center mt-3">
-    <p><a href = "{{ route('posts.index') }}">ホーム画面はこちら</a></p>
-</div>

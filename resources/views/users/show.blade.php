@@ -19,4 +19,7 @@
         @include('post.post', ['posts' => $posts])
     </div>
 </div>
+<div class = "text-center mt-3">
+    <p><a href = "{{ route('posts.index') }}">ホーム画面はこちら</a></p>
+</div>
 @endsection
